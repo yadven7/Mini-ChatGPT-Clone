@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = st.secrets.get("AQ.Ab8RN6LLFXeSWMwDG9XuMvFaMARsTpgXKTO2oea2PCKT94yOaQ") or os.getenv("AQ.Ab8RN6LLFXeSWMwDG9XuMvFaMARsTpgXKTO2oea2PCKT94yOaQ")
+
+api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
 # Page setup
