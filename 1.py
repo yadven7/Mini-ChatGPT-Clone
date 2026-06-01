@@ -1,5 +1,4 @@
-from google import genai
-from google.genai import types
+import google.generativeai as genai
 import streamlit as st
 import os
 from dotenv import load_dotenv
@@ -33,20 +32,19 @@ with st.sidebar:
 
         st.rerun()
 
-# Create client only once
-if "client" not in st.session_state:
-    st.session_state.client = genai.Client(api_key=api_key)
+# Configure API key for google-generativeai
+genai.configure(api_key=api_key)
 
 # Create chat only once
 if "chat" not in st.session_state:
-    config = types.GenerateContentConfig(
-        temperature=0.7
+    generation_config = {
+        "temperature": 0.7,
+    }
+    model = genai.GenerativeModel(
+        model_name="gemini-2.5-flash",
+        generation_config=generation_config
     )
-
-    st.session_state.chat = st.session_state.client.chats.create(
-        model="gemini-2.5-flash",
-        config=config
-    )
+    st.session_state.chat = model.start_chat(history=[])
 
 # Initialize visible chat messages
 if "messages" not in st.session_state:
