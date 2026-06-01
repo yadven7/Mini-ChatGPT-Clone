@@ -2,6 +2,10 @@
 
 A simple AI chatbot built using **Python**, **Streamlit**, and **Google Gemini API**.
 
+## Live Demo
+
+*[Open App](https://mini-chatgpt-clone.streamlit.app/)
+
 ## 🚀 Features
 
 * ChatGPT-like UI using Streamlit
@@ -12,6 +16,7 @@ A simple AI chatbot built using **Python**, **Streamlit**, and **Google Gemini A
 * Ready for Streamlit Cloud deployment
 
 ---
+
 
 ## 🛠️ Tech Stack
 
