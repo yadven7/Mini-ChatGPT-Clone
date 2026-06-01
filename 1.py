@@ -25,9 +25,7 @@ with st.sidebar:
 
 # Session state initialize
 if "client" not in st.session_state:
-    st.session_state.client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
-)
+    st.session_state.client = genai.Client(api_key=api_key)
 
 if "chat" not in st.session_state:
 
