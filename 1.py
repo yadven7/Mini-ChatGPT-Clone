@@ -8,14 +8,12 @@ from dotenv import load_dotenv
 st.set_page_config(page_title="Mini ChatGPT", page_icon="🤖")
 st.title("Mini ChatGPT Clone 🤖")
 
-# Load .env for local development
-load_dotenv()
-
 # API key: Streamlit Cloud secrets OR local .env
 try:
-    api_key = st.secrets["GEMINI_API_KEY"]
+    api_key = st.secrets["GEMINI_API_KEY"]  # Streamlit Cloud
 except Exception:
-    api_key = os.getenv("GEMINI_API_KEY")
+    load_dotenv()
+    api_key = os.getenv("GEMINI_API_KEY")   # Local
 
 # Stop app if API key not found
 if not api_key:
