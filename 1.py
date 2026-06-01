@@ -6,9 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
-)
+api_key = st.secrets.get("AQ.Ab8RN6LLFXeSWMwDG9XuMvFaMARsTpgXKTO2oea2PCKT94yOaQ") or os.getenv("AQ.Ab8RN6LLFXeSWMwDG9XuMvFaMARsTpgXKTO2oea2PCKT94yOaQ")
+client = genai.Client(api_key=api_key)
 
 # Page setup
 st.set_page_config(page_title="Mini ChatGPT", page_icon="🤖")
